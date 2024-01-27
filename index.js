@@ -11,8 +11,28 @@ const editor = grapesjs.init({
     layerManager: {
         appendTo: '#layers-container'
     },
+    traitManager:{
+      appendTo:'#trait-container',
+    },
+
+    selectorManager:{
+      appendTo: '#styles-container'
+    },
     styleManager: {
-        appendTo: "#style-view"
+        appendTo: "#styles-container",
+        sectors:[{
+          name:"Dimension",
+          open:false,
+          builderProps:["width","min-height","padding"],
+          properties:[{
+            type:"integer",
+            name:"The Width",
+            property:"width",
+            units:["px","%","rem"],
+            defaults:"auto",
+            min:0,
+          }]
+        }]
     },
     panels: {
         defaults: [{
@@ -130,3 +150,14 @@ editor.BlockManager.add('Heading', {
     <button type="button" class="btn">Button</button>
     `,
   })
+
+//Commands to swithc device layout from desktop to mobile
+
+  editor.Commands.add("set-device-desktop",{
+    run:(editor)=>editor.setDevice("Desktop"),
+  });
+
+
+  editor.Commands.add("set-device-mobile",{
+    run:(editor)=>editor.setDevice("mobile"),
+  });

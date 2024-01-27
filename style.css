@@ -85,3 +85,13 @@ html{
 .gjs-four-color,.gjs-four-color-h:hover{
     color: darkcyan;
 }
+
+.gjs-pn-btn{
+    border: 2px solid green;
+}
+
+
+
+.btn, .nav-lin, .modal-content, .form-control{
+    border-radius: 0;
+}
